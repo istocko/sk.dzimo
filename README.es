@@ -1,0 +1,1 @@
+dzimo.sk
