@@ -23,14 +23,11 @@
 <div style="width:100%;text-align: center;height: 433px;" class="module" id="module_main">
 <img src="DJ.Dzimo2021.jpg" alt="dzimo" title="DJ Dzimo" style="margin:10px;width:100%;" />
 </div>
-<div style='display:none; width: 100%; overflow: hidden; height: 433px; color: rgb(255, 54, 0); text-align: left; font-family: "Times New Roman",Times,serif;' class="module" id="module_about">
-<img src="dzimo_logo.png" align="left" width="200" style="border-radius: 60px;margin-top: 10px;"/> 
-<br>
+<div style='display:none; width: 100%; overflow: hidden; height: 433px; color: rgb(255, 54, 0); text-align: left; font-family: "Times New Roman",Times,serif;font-size:0.9em;' class="module" id="module_about">
+<img src="DJ.DZIMO-logo.jpg" align="left" width="200" style="margin:5px;width:25%;"/>
 Dátum narodenia: 	1985-05-30<br>
 Miesto narodenia: 	Košice, Slovensko<br>
-<br><br>
 <br>
-<img src="DJ.DZIMO-logo.jpg" align="left" width="200" style="margin:5px;"/>
 Od roku 1999 sa aktívne venuje DJ-ingu a hraniu na hudobných nástrojoch. 
 Jeho snom je mať vlastné štúdio, kde môže kľudne komponovať nadčasovú hudbu pre ostatných. 
 V online priestore chce preraziť nielen na Slovensku, ale aj v iných krajinách, pretože tvorba ovplyvňuje najrozmanitejšie ľudské duše. 
@@ -39,7 +36,8 @@ Miluje hudbu a nevie si predstaviť čo by ho mohlo odradiť od produkcie...
 </div>
 
 <div id="footer" style="text-align: center;color: #DDBBFF;font-size: 11px;margin-top:10px;font-family: 'Times New Roman', Georgia, Serif;position:absolute;bottom:10px;width:100%;">
-&nbsp; <span id="main_links" style="display:none">
+&nbsp; 
+<div  id="links" style="display:block">
 <a id="main_link" href="javascript:void(0);" onClick="showMain();" style="text-decoration:none; color:#FFFFFF;" title="Naspäť na hlavnú stránku">Naspäť na hlavnú stránku</a>&nbsp;
 <a id="about_link" href="javascript:void(0);" onClick="showAbout();" style="text-decoration:none; color:#FFFFFF;" title="O mne">0 mne</a>&nbsp;
 <a id="welcome_link" href="javascript:void(0);" onClick="showWelcome();" style="text-decoration:none; color:#FFFFFF;" title="Husľový kľúč">Husľový kľúč</a>&nbsp;
@@ -52,8 +50,13 @@ Miluje hudbu a nevie si predstaviť čo by ho mohlo odradiť od produkcie...
 <a id="facebook_link" href="https://sk-sk.facebook.com/djdzimo/"  style="text-decoration:none; color:#FFFFFF;" target="_NEW">Facebook</a>&nbsp;
 <br>
 &copy;2022
+</div>
+<div id="menu_switcher" style="position:absolute;bottom:10px;cursor:pointer;display:none">
+<img src="iau.png" width="20px;" style="border-radius: 50%;"  onclick="showMenu();"/>
 <br>
+<span id="color:red;" onclick="showMenu();">Zobraz menu</span>
 <br>
+</div>
 <div id="earth_map" style="">
 <script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5qon30fgewu&amp;m=7&amp;c=ff0000&amp;cr1=ffffff&amp;f=georgia&amp;l=0&amp;bv=50&amp;v0=40&amp;z=26&amp;rx=20&amp;lx=100&amp;ly=200&amp;hi=60" async="async"></script>
 </div>
@@ -64,13 +67,43 @@ Miluje hudbu a nevie si predstaviť čo by ho mohlo odradiť od produkcie...
 
 </div>
 <script type="text/javascript">
+function getHash() {
+  var hash = window.location.hash;
+  return hash.substring(1); // remove #
+}
+//var menuVisible = false;
+function showMenu(){
+	//menuVisible = !menuVisible;
+	//var val = '';
+	//if (menuVisible)
+	//{
+	//	val = 'block';
+	//	document.getElementById("menu_switcher").style.display='none';
+	//} else {
+	//	val = 'none';
+	//}
+	//document.getElementById("links").style.display=val;
+	document.getElementById("menu_switcher").style.display='none';
+	document.getElementById("links").style.display='block';
+}
+
+function showSwitcher()
+{
+	    document.getElementById("menu_switcher").style.display='block';
+}
+
+function hideSwitcher()
+{
+	    document.getElementById("menu_switcher").style.display='none';
+}
+
 function enter()
 {
 document.getElementById("welcome").style.display='none';	
 document.getElementById("main").style.display='block';	
 document.getElementById("main_link").style.display='none';	
 document.getElementById("about_link").style.display='block';	
-document.getElementById("main_links").style.display='inline';	
+document.getElementById("main_links").style.display='inline';
 }
 function showWelcome()
 {
@@ -81,20 +114,31 @@ document.getElementById("main_links").style.display='none';
 
 function showAbout()
 {
-	
+document.getElementById("welcome").style.display='none';
+document.getElementById("main").style.display='block';
 document.getElementById("module_main").style.display='none';	
 document.getElementById("module_about").style.display='block';	
 document.getElementById("main_link").style.display='block';	
 document.getElementById("about_link").style.display='none';	
-document.getElementById("module_about").style.display='block';	
+document.getElementById("module_about").style.display='block';
 }
 function showMain()
 {
-	
+document.getElementById("welcome").style.display='none';	
 document.getElementById("module_about").style.display='none';	
 document.getElementById("module_main").style.display='block';	
 document.getElementById("main_link").style.display='none';	
-document.getElementById("about_link").style.display='block';	
+document.getElementById("about_link").style.display='block';
+}
+
+window.onload = function() {
+	var section=getHash();
+	switch (section) {
+            case 'about': showAbout();break;
+            default: 
+                
+                break;
+    }
 }
 /*
 window.onload = function() {
