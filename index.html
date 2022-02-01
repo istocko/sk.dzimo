@@ -21,7 +21,7 @@
 <source src="First_Free_Summer_2015_Dzimo_Mix_Stage.wav">
 </audio>-->
 <div style="width:100%;text-align: center;height: 433px;" class="module" id="module_main">
-<img src="DJ.Dzimo2021.jpg" alt="dzimo" title="DJ Dzimo" style="margin:10px;width:100%;" />
+<img src="DJ.Dzimo2021.jpg" alt="dzimo" title="DJ Dzimo" style="margin:10px;max-width: 400px;width:100%;" />
 </div>
 <div style='display:none; width: 100%; overflow: hidden; height: 433px; color: rgb(255, 54, 0); text-align: left; font-family: "Times New Roman",Times,serif;font-size:0.9em;' class="module" id="module_about">
 <img src="DJ.DZIMO-logo.jpg" align="left" width="200" style="margin:5px;width:25%;"/>
@@ -37,7 +37,7 @@ Miluje hudbu a nevie si predstaviť čo by ho mohlo odradiť od produkcie...
 
 <div id="footer" style="text-align: center;color: #DDBBFF;font-size: 11px;margin-top:10px;font-family: 'Times New Roman', Georgia, Serif;position:absolute;bottom:10px;width:100%;">
 &nbsp; 
-<div  id="links" style="display:block">
+<div  id="links" style="display:block" onmouseout="inMenu=false;showHideMenu()" onmousemove="inMenu=true;">
 <a id="main_link" href="javascript:void(0);" onClick="showMain();" style="text-decoration:none; color:#FFFFFF;" title="Naspäť na hlavnú stránku">Naspäť na hlavnú stránku</a>&nbsp;
 <a id="about_link" href="javascript:void(0);" onClick="showAbout();" style="text-decoration:none; color:#FFFFFF;" title="O mne">0 mne</a>&nbsp;
 <a id="welcome_link" href="javascript:void(0);" onClick="showWelcome();" style="text-decoration:none; color:#FFFFFF;" title="Husľový kľúč">Husľový kľúč</a>&nbsp;
@@ -51,10 +51,10 @@ Miluje hudbu a nevie si predstaviť čo by ho mohlo odradiť od produkcie...
 <br>
 &copy;2022
 </div>
-<div id="menu_switcher" style="position:absolute;bottom:10px;cursor:pointer;display:none">
-<img src="iau.png" width="20px;" style="border-radius: 50%;"  onclick="showMenu();"/>
+<div id="menu_switcher" style="position:absolute;bottom:10px;cursor:pointer;display:none;text-align:center;width:100%;">
+<img src="iau.png" width="20px;" style="border-radius: 50%;"  onclick="showHideMenu();"/>
 <br>
-<span id="color:red;" onclick="showMenu();">Zobraz menu</span>
+<span id="color:red;" onclick="showHideMenu();">Zobraz menu</span>
 <br>
 </div>
 <div id="earth_map" style="">
@@ -71,20 +71,22 @@ function getHash() {
   var hash = window.location.hash;
   return hash.substring(1); // remove #
 }
-//var menuVisible = false;
-function showMenu(){
-	//menuVisible = !menuVisible;
-	//var val = '';
-	//if (menuVisible)
-	//{
-	//	val = 'block';
-	//	document.getElementById("menu_switcher").style.display='none';
-	//} else {
-	//	val = 'none';
-	//}
-	//document.getElementById("links").style.display=val;
-	document.getElementById("menu_switcher").style.display='none';
-	document.getElementById("links").style.display='block';
+var inMenu = false;
+var menuVisible = true;
+function showHideMenu(){
+	menuVisible = !menuVisible;
+	var val = '';
+	if (menuVisible)
+	{
+		val = 'block';
+		hideSwitcher();
+	} else {
+		val = 'none';
+		showSwitcher();
+	}
+	document.getElementById("links").style.display=val;
+	//document.getElementById("menu_switcher").style.display='none';
+	//document.getElementById("links").style.display='block';
 }
 
 function showSwitcher()
@@ -103,13 +105,13 @@ document.getElementById("welcome").style.display='none';
 document.getElementById("main").style.display='block';	
 document.getElementById("main_link").style.display='none';	
 document.getElementById("about_link").style.display='block';	
-document.getElementById("main_links").style.display='inline';
+//document.getElementById("main_links").style.display='inline';
 }
 function showWelcome()
 {
 document.getElementById("main").style.display='none';	
 document.getElementById("welcome").style.display='block';	
-document.getElementById("main_links").style.display='none';	
+//document.getElementById("main_links").style.display='none';	
 }
 
 function showAbout()
@@ -121,6 +123,7 @@ document.getElementById("module_about").style.display='block';
 document.getElementById("main_link").style.display='block';	
 document.getElementById("about_link").style.display='none';	
 document.getElementById("module_about").style.display='block';
+setTimeout(showHideMenu,5000);
 }
 function showMain()
 {
