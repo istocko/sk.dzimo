@@ -64,7 +64,7 @@
         <!--<img src="about-3.jpg" alt="dzimo" title="DJ Dzimo" style="margin-top:10px;max-width: 300px;width:25%;" />-->
         <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/ypsRJjhVWv0?&autoplay=1" title="YouTube video player" frameborder="0" allow="autoplay" allowfullscreen></iframe>-->
         <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
-    <div id="player"></div>
+    <div id="player" style="position:relative;width: 100%;"></div>
     <div>
         <a href="javascript:player.loadVideoById('ypsRJjhVWv0',0);" title="Project DJ DZIMO 2023 Light old version LIVE"><img src="1.png" width="100" style="max-width:15%"/></a>
         <!--<a href="javascript:player.loadVideoById('',0);" title=""><img src="1.png" width="100" style="max-width:15%"/></a>-->
@@ -244,6 +244,12 @@ window.onload = function() {
                 
                 break;
     }
+
+	//update width ofiframe with video djs room if chnged width ofparent
+	// var width = 500;
+	// console.log("setwidth to "+width);
+
+
 }
 /*
 window.onload = function() {
