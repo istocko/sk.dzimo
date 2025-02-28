@@ -61,16 +61,21 @@
 </div>
 	</div>
     <div style="width:100%;text-align: center;height: 700px;" class="module" id="module_main">
+
+		<div id="local_video">
+			<iframe src="music/DZIMO_2023_NEW/DZIMO_2023_NEW.html" height="200" width="400" ></iframe>
+			<br />
+			<iframe src="music/CALL_ME_NOW_2025/CALL_ME_NOW_2025.html?autoplay=false" height="200" width="400" ></iframe>
+		</div>
+
+
         <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/ypsRJjhVWv0?&autoplay=1" title="YouTube video player" frameborder="0" allow="autoplay" allowfullscreen></iframe>-->
         <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
-	<div id="videoIntro">
+	
+
+	<div id="videoIntro" style="display:none">
 	<div id="player" style="position:relative;width: 50%;"></div>
     <div>
-        <a href="javascript:player.loadVideoById('8u8iqEz-QT8',0);" title="Džimo LOGO 2025"><img src="11.png" width="100" style="max-width:15%"/></a>
-        <a href="javascript:player.loadVideoById('QUrWAKnRrdA',0);" title="Promo 2024"><img src="12.png" width="100" style="max-width:15%"/></a>
-        <a href="javascript:player.loadVideoById('bKpGV9-EFlk',0);" title="Džimo LOGO 2024"><img src="13.png" width="100" style="max-width:15%"/></a>
-        <a href="javascript:player.loadVideoById(''jE5NsNq9_PA,0);" title="Klasce 2024 POP"><img src="14.png" width="100" style="max-width:15%"/></a>
-        <a href="javascript:player.loadVideoById('1UjlQQAqyPo',0);" title="DANCE MUSIC"><img src="15.png" width="100" style="max-width:15%"/></a>
         <a href="javascript:player.loadVideoById('ypsRJjhVWv0',0);" title="Project DJ DZIMO 2023 Light old version LIVE"><img src="1.png" width="100" style="max-width:15%"/></a>
         <!--<a href="javascript:player.loadVideoById('',0);" title=""><img src="1.png" width="100" style="max-width:15%"/></a>-->
         <a href="javascript:player.loadVideoById('qfyn_UCt-vw',0);" title=""FlowerS RoseS><img src="10.png" width="100" style="max-width:15%"/></a>
@@ -82,10 +87,11 @@
         <a href="javascript:player.loadVideoById('XqYVJrl2SWM',0);" title="Mushrooms 2020 TREE Nature free"><img src="4.png" width="100" style="max-width:15%"/></a>
         <a href="javascript:player.loadVideoById('brEwrthw9A8',0);" title="Project DJ. Džimo SK vs. DJ. Malte DE"><img src="5.png" width="100" style="max-width:15%"/></a>
         <a href="javascript:player.loadVideoById('9-yY_tRb3CU',0);" title="HOME STUDIO Edition PROJECT DJ Džimo 2022"><img src="6.png" width="100" style="max-width:15%"/></a>
+	</div>
+	</div>
 	<br />
         <img src="about-4.jpg" alt="dzimo" title="DJ Dzimo" style="margin-top:10px;max-width: 300px;width:25%;" />
-    </div>
-	</div>
+    
     
 <script>
   // 2. This code loads the IFrame Player API code asynchronously.
@@ -99,19 +105,19 @@
   //    after the API code downloads.
   var player;
   function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {
+    /*player = new YT.Player('player', {
       height: '315',
       width: '560',
-      videoId: '8u8iqEz-QT8',
+      videoId: 'ypsRJjhVWv0',
       playerVars: {
         
       }
-    });
+    });*/
   }
 </script>
     </div>
         
-    <div style="/*height: calc(100% - 725px);overflow-y: scroll;*/">
+    <div id="soundcloud_playlists" style="/*height: calc(100% - 725px);overflow-y: scroll;*/">
 	<div id="soundcloud_playlist_2023">
 		<iframe width="100%" height="590" scrolling="no" frameborder="no" allow="" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1551703675&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/imrich-stolar" title="DJ Dzimo" target="_blank" style="color: #cccccc; text-decoration: none;">DJ Dzimo</a> · <a href="https://soundcloud.com/imrich-stolar/sets/dj-d-imo-2023" title="DJ Džimo 2023" target="_blank" style="color: #cccccc; text-decoration: none;">DJ Džimo 2023</a></div>
 	</div>
@@ -206,7 +212,7 @@ function enter()
 {
 document.getElementById("welcome").style.display='none';	
 document.getElementById("main").style.display='block';	
-player.playVideo();
+//player.playVideo();
 document.getElementById("main_link").style.display='none';	
 document.getElementById("about_link").style.display='block';	
 //document.getElementById("main_links").style.display='inline';
